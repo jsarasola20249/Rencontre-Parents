@@ -1,0 +1,4 @@
+.clasprc.json
+.clasp-deploy-id
+backend/index.html
+.cursor/*.log

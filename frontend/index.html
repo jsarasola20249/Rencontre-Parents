@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rencontre de parents</title>
+  <style>
+    :root {
+      --papier: #f3efe6;
+      --encre: #1e1b16;
+      --vert: #1f3d34;
+      --vert-doux: #e4eee8;
+      --ligne: #d9d0c2;
+      --erreur: #8a3d2f;
+      --ok: #1f3d34;
+      --muted: #5e584f;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--papier);
+      color: var(--encre);
+      font: 16px/1.45 "Segoe UI", "Helvetica Neue", sans-serif;
+    }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    .cadre {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+    .hors, .apercu {
+      max-width: 640px;
+      margin: 48px auto;
+      padding: 0 20px;
+    }
+    .apercu {
+      margin: 0 auto;
+      padding: 10px 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, .marque {
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+    .entete-app {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--encre);
+      padding-bottom: 16px;
+    }
+    .marque { margin: 0; font-size: 34px; line-height: 1; }
+    .sous { margin: 6px 0 0; color: var(--muted); }
+    nav { display: flex; gap: 6px; flex-wrap: wrap; }
+    nav button {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+    nav button[aria-selected="true"] {
+      background: var(--vert);
+      color: #f6f3ec;
+      border-color: var(--vert);
+    }
+    .panneau { margin-top: 28px; }
+    .ligne-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    label.champ { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--muted); }
+    label.champ input, label.champ select, label.champ textarea { color: var(--encre); }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+      background: #fffdf8;
+      border: 1px solid var(--ligne);
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-width: 0;
+    }
+    textarea { width: 100%; min-height: 72px; resize: vertical; }
+    .bouton, button.secondaire {
+      border-radius: 999px;
+      padding: 8px 16px;
+      border: 1px solid var(--vert);
+    }
+    .bouton { background: var(--vert); color: #f6f3ec; }
+    button.secondaire { background: transparent; color: var(--vert); }
+    .liste { display: flex; flex-direction: column; gap: 8px; margin-top: 22px; }
+    .carte {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--ligne);
+    }
+    .carte h2 { margin: 0; font-size: 18px; font-weight: 600; }
+    .carte p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vide { color: var(--muted); }
+    .barre-rencontre {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .etat-rencontre { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    details {
+      border-top: 1px solid var(--ligne);
+      padding: 12px 0;
+    }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .badge { color: var(--muted); font-weight: 500; font-size: 13px; }
+    .deux {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .liste-coche {
+      max-height: 280px;
+      overflow: auto;
+      border: 1px solid var(--ligne);
+      border-radius: 10px;
+      background: #fffdf8;
+      padding: 6px;
+    }
+    .coche {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 6px 8px;
+      border-radius: 8px;
+    }
+    .coche:has(input:checked) { background: var(--vert-doux); }
+    .coche small { display: block; color: var(--muted); font-size: 13px; }
+    .groupe {
+      margin: 8px 8px 2px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h3 { margin: 18px 0 8px; font-size: 15px; }
+    .synthese { margin-top: 8px; }
+    #message {
+      position: sticky;
+      bottom: 12px;
+      margin-top: 20px;
+      min-height: 1.2em;
+    }
+    #message.erreur { color: var(--erreur); }
+    #message.ok { color: var(--ok); }
+    .logo-etat { color: var(--muted); }
+    a { color: var(--vert); }
+    .feuille { display: none; }
+    .feuille-page { max-width: 180mm; margin: 0 auto; padding: 0; }
+    .feuille-entete {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .logo-cadre {
+      width: 92px;
+      height: 92px;
+      border: 1px solid var(--encre);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+    .logo-cadre img { width: 100%; height: 100%; object-fit: contain; }
+    .logo-cadre span { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .feuille h1 { font-size: 28px; margin: 22px 0 0; }
+    .feuille .qui { font-size: 22px; margin: 4px 0 0; }
+    .feuille .quand { margin: 0 0 16px; color: var(--muted); }
+    .bloc-section { margin: 0 0 16px; }
+    .bloc-section h2 {
+      font-size: 16px;
+      border-bottom: 1px solid var(--encre);
+      padding-bottom: 4px;
+    }
+    .feuille .deux { margin-top: 8px; }
+    .feuille ul { margin: 0; padding-left: 18px; }
+    .strategie { margin: 0 0 8px; }
+    .strategie h4 { margin: 0; font-size: 15px; }
+    .strategie p { margin: 2px 0; }
+    .exemple { color: var(--muted); }
+    .pied { margin-top: 24px; font-size: 12px; color: var(--muted); }
+    @media (max-width: 800px) {
+      .entete-app, .barre-rencontre, .carte { flex-direction: column; align-items: stretch; }
+      .deux { grid-template-columns: 1fr; }
+      .marque { font-size: 28px; }
+    }
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .feuille { display: block !important; }
+      .cadre { display: none !important; }
+      .feuille-page { padding: 0; }
+      .bloc-section, .strategie, .feuille-entete { break-inside: avoid; }
+      @page { size: A4; margin: 14mm; }
+    }
+  </style>
+</head>
+<body>
+  <p id="bandeau-apercu" class="apercu no-print" hidden>Aperçu local — les données ne sont pas enregistrées dans Google Drive.</p>
+  <div id="hors-gas" class="hors no-print" hidden>
+    <h1>Rencontre de parents</h1>
+    <p>Ouvrez cette page depuis l’application Web Google. L’adresse se termine par /exec.</p>
+  </div>
+  <div id="application" class="cadre no-print" hidden>
+    <header class="entete-app">
+      <div>
+        <p class="marque">Rencontre de parents</p>
+        <p class="sous" id="sous-titre">1re année du primaire</p>
+      </div>
+      <nav>
+        <button type="button" data-ecran="eleves" aria-selected="true">Élèves</button>
+        <button type="button" data-ecran="rencontre" aria-selected="false">Rencontre</button>
+        <button type="button" data-ecran="suivi" aria-selected="false">Suivi</button>
+        <button type="button" data-ecran="enseignant" aria-selected="false">Enseignant</button>
+      </nav>
+    </header>
+
+    <section id="ecran-eleves" class="panneau">
+      <form id="form-eleve" class="ligne-form">
+        <label class="champ">Prénom
+          <input id="eleve-prenom" type="text" autocomplete="given-name" required>
+        </label>
+        <label class="champ">Nom
+          <input id="eleve-nom" type="text" autocomplete="family-name" required>
+        </label>
+        <button class="bouton" type="submit" id="eleve-enregistrer">Enregistrer</button>
+        <button class="secondaire" type="button" id="eleve-annuler" hidden>Annuler</button>
+      </form>
+      <div id="liste-eleves" class="liste"></div>
+    </section>
+
+    <section id="ecran-rencontre" class="panneau" hidden>
+      <div class="barre-rencontre">
+        <label class="champ">Élève
+          <select id="rencontre-eleve"></select>
+        </label>
+        <label class="champ">Date de la rencontre
+          <input id="rencontre-date" type="date" required>
+        </label>
+        <div class="actions">
+          <button class="secondaire" type="button" id="rencontre-nouvelle">Nouvelle rencontre</button>
+          <button class="bouton" type="button" id="rencontre-enregistrer">Enregistrer</button>
+          <button class="secondaire" type="button" id="rencontre-imprimer">Imprimer</button>
+        </div>
+      </div>
+      <p class="etat-rencontre" id="etat-rencontre"></p>
+      <div id="sections-rencontre"></div>
+      <div class="synthese">
+        <h3>Synthèse de la rencontre</h3>
+        <label class="champ">Forces principales
+          <textarea id="champ-forces"></textarea>
+        </label>
+        <label class="champ">Défis prioritaires
+          <textarea id="champ-defis"></textarea>
+        </label>
+        <label class="champ">Objectif pour la prochaine étape
+          <textarea id="champ-objectif"></textarea>
+        </label>
+        <label class="champ">Commentaires
+          <textarea id="champ-commentaires"></textarea>
+        </label>
+        <label class="champ">Notes pour la rencontre
+          <textarea id="champ-notes"></textarea>
+        </label>
+        <p class="vide">Ces notes ne sont pas imprimées.</p>
+      </div>
+    </section>
+
+    <section id="ecran-suivi" class="panneau" hidden>
+      <label class="champ">Élève
+        <select id="suivi-eleve"></select>
+      </label>
+      <div id="liste-suivi" class="liste"></div>
+    </section>
+
+    <section id="ecran-enseignant" class="panneau" hidden>
+      <form id="form-enseignant" class="ligne-form">
+        <label class="champ">Prénom
+          <input id="ens-prenom" type="text" autocomplete="given-name">
+        </label>
+        <label class="champ">Nom
+          <input id="ens-nom" type="text" autocomplete="family-name">
+        </label>
+        <label class="champ">Courriel
+          <input id="ens-courriel" type="email" autocomplete="email">
+        </label>
+        <label class="champ">Téléphone
+          <input id="ens-telephone" type="tel" autocomplete="tel">
+        </label>
+        <label class="champ">École
+          <input id="ens-ecole" type="text">
+        </label>
+        <label class="champ">Classe
+          <input id="ens-classe" type="text" placeholder="1re année">
+        </label>
+        <label class="champ">Année scolaire
+          <input id="ens-annee" type="text" placeholder="2026-2027">
+        </label>
+        <button class="bouton" type="submit">Enregistrer</button>
+      </form>
+      <p class="logo-etat" id="logo-etat"></p>
+      <p id="lien-dossier"></p>
+    </section>
+    <p id="message" role="status"></p>
+  </div>
+  <article id="feuille" class="feuille"></article>
+  <script>
+    var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    var etat = {
+      aujourdHui: '',
+      enseignant: enseignantVideLocal(),
+      eleves: [],
+      catalogue: { sections: [] },
+      logo: { present: false, message: '' },
+      dossier: null,
+      rencontre: null,
+      ecran: 'eleves',
+      eleveEdition: ''
+    };
+    var instantane = '';
+    var occupe = false;
+
+    function enseignantVideLocal() {
+      return { prenom: '', nom: '', courriel: '', telephone: '', ecole: '', classe: '', annee: '' };
+    }
+
+    function rencontreVide(eleveId) {
+      return {
+        id: '',
+        eleveId: eleveId || '',
+        date: etat.aujourdhui,
+        enregistreLe: '',
+        forcesPrincipales: '',
+        defisPrioritaires: '',
+        objectif: '',
+        commentaires: '',
+        notesInternes: '',
+        choix: []
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', demarrer);
+
+    function demarrer() {
+      var local = !window.google || !google.script || !google.script.run;
+      var apercu = /(?:^|[?&])apercu=1(?:&|$)/.test(location.search);
+      if (local && apercu) {
+        window.__apercu = true;
+        document.getElementById('bandeau-apercu').hidden = false;
+        chargerCatalogueLocal().then(function (catalogue) {
+          etat.catalogue = catalogue;
+          etat.aujourdhui = dateLocaleISO(new Date());
+          etat.rencontre = rencontreVide();
+          etat.logo = { present: false, message: 'Ajoutez logo.png ou logo.jpg dans le dossier Identité.' };
+          montrerApplication();
+          afficher('eleves');
+          memoriser();
+        }).catch(function () {
+          document.getElementById('hors-gas').hidden = false;
+          document.getElementById('hors-gas').querySelector('p').textContent = 'Le catalogue local est introuvable.';
+        });
+        return;
+      }
+      if (local) {
+        document.getElementById('hors-gas').hidden = false;
+        return;
+      }
+      montrerApplication();
+      montrerMessage('Chargement…', false);
+      Promise.all([
+        appeler('obtenirContexte'),
+        appeler('obtenirLogo').catch(function (err) {
+          return { present: false, message: messageErreur(err) };
+        }),
+        appeler('obtenirDossier').catch(function () { return null; })
+      ]).then(function (res) {
+        appliquerContexte(res[0]);
+        etat.logo = res[1];
+        etat.dossier = res[2];
+        etat.rencontre = rencontreVide();
+        montrerMessage('', false);
+        afficher('eleves');
+        memoriser();
+      }).catch(function (err) {
+        montrerMessage(messageErreur(err), true);
+      });
+    }
+
+    function montrerApplication() {
+      document.getElementById('application').hidden = false;
+      if (!window.__branche) {
+        brancher();
+        window.__branche = true;
+      }
+    }
+
+    function appliquerContexte(ctx) {
+      etat.aujourdhui = ctx.aujourdhui;
+      etat.enseignant = ctx.enseignant || enseignantVideLocal();
+      etat.eleves = ctx.eleves || [];
+      etat.catalogue = ctx.catalogue || { sections: [] };
+      document.getElementById('sous-titre').textContent = sousTitre();
+    }
+
+    function sousTitre() {
+      var e = etat.enseignant || {};
+      var morceaux = [];
+      if (e.ecole) morceaux.push(e.ecole);
+      if (e.classe) morceaux.push(e.classe);
+      if (!morceaux.length) return '1re année du primaire';
+      return morceaux.join(' · ');
+    }
+
+    function brancher() {
+      document.querySelectorAll('nav button').forEach(function (bouton) {
+        bouton.addEventListener('click', function () {
+          afficher(bouton.getAttribute('data-ecran'));
+        });
+      });
+      document.getElementById('form-eleve').addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        sauverEleve();
+      });
+      document.getElementById('eleve-annuler').addEventListener('click', annulerEditionEleve);
+      document.getElementById('liste-eleves').addEventListener('click', clicEleve);
+      document.getElementById('rencontre-enregistrer').addEventListener('click', sauverRencontre);
+      document.getElementById('rencontre-imprimer').addEventListener('click', imprimerCourante);
+      document.getElementById('rencontre-nouvelle').addEventListener('click', nouvelleRencontre);
+      document.getElementById('sections-rencontre').addEventListener('change', changementChoix);
+      document.getElementById('suivi-eleve').addEventListener('change', rendreSuivi);
+      document.getElementById('liste-suivi').addEventListener('click', clicSuivi);
+      document.getElementById('form-enseignant').addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        sauverEnseignant();
+      });
+    }
+
+    function afficher(nom) {
+      if (etat.ecran === 'rencontre') lireRencontreDom();
+      etat.ecran = nom;
+      ['eleves', 'rencontre', 'suivi', 'enseignant'].forEach(function (id) {
+        document.getElementById('ecran-' + id).hidden = id !== nom;
+      });
+      document.querySelectorAll('nav button').forEach(function (bouton) {
+        bouton.setAttribute('aria-selected', bouton.getAttribute('data-ecran') === nom ? 'true' : 'false');
+      });
+      if (nom === 'eleves') rendreEleves();
+      if (nom === 'rencontre') rendreRencontre();
+      if (nom === 'suivi') {
+        remplirSelect(document.getElementById('suivi-eleve'), true, document.getElementById('suivi-eleve').value);
+        rendreSuivi();
+      }
+      if (nom === 'enseignant') rendreEnseignant();
+      document.getElementById('sous-titre').textContent = sousTitre();
+    }
+
+    function rendreEleves() {
+      var liste = document.getElementById('liste-eleves');
+      if (!etat.eleves.length) {
+        liste.innerHTML = '<p class="vide">Aucun élève pour le moment.</p>';
+        return;
+      }
+      liste.innerHTML = etat.eleves.map(function (eleve) {
+        var archive = eleve.actif === 'NON';
+        return '<article class="carte"><div><h2>' + echapper(nomEleve(eleve)) + '</h2><p>' +
+          (archive ? 'Archivé' : 'Actif') + '</p></div><div class="actions">' +
+          '<button class="secondaire" type="button" data-action="modifier" data-id="' + echapper(eleve.id) + '">Modifier</button>' +
+          '<button class="secondaire" type="button" data-action="actif" data-id="' + echapper(eleve.id) + '" data-actif="' +
+          (archive ? 'OUI' : 'NON') + '">' + (archive ? 'Réactiver' : 'Archiver') + '</button></div></article>';
+      }).join('');
+    }
+
+    function sauverEleve() {
+      var prenom = document.getElementById('eleve-prenom').value;
+      var nom = document.getElementById('eleve-nom').value;
+      occuper(function () {
+        return appeler('enregistrerEleve', { id: etat.eleveEdition, prenom: prenom, nom: nom }).then(function (eleve) {
+          remplacerEleve(eleve);
+          annulerEditionEleve();
+          rendreEleves();
+          montrerMessage('Élève enregistré.', false);
+        });
+      });
+    }
+
+    function annulerEditionEleve() {
+      etat.eleveEdition = '';
+      document.getElementById('form-eleve').reset();
+      document.getElementById('eleve-enregistrer').textContent = 'Enregistrer';
+      document.getElementById('eleve-annuler').hidden = true;
+    }
+
+    function clicEleve(ev) {
+      var bouton = ev.target.closest('button');
+      if (!bouton) return;
+      var id = bouton.getAttribute('data-id');
+      if (bouton.getAttribute('data-action') === 'modifier') {
+        var eleve = eleveParId(id);
+        if (!eleve) return;
+        etat.eleveEdition = id;
+        document.getElementById('eleve-prenom').value = eleve.prenom;
+        document.getElementById('eleve-nom').value = eleve.nom;
+        document.getElementById('eleve-enregistrer').textContent = 'Mettre à jour';
+        document.getElementById('eleve-annuler').hidden = false;
+        return;
+      }
+      var actif = bouton.getAttribute('data-actif');
+      var question = actif === 'NON'
+        ? 'Archiver cet élève ? Ses rencontres restent dans le suivi.'
+        : '';
+      if (question && !window.confirm(question)) return;
+      occuper(function () {
+        return appeler('definirActif', { id: id, actif: actif }).then(function (eleve) {
+          remplacerEleve(eleve);
+          rendreEleves();
+          montrerMessage(actif === 'NON' ? 'Élève archivé.' : 'Élève réactivé.', false);
+        });
+      });
+    }
+
+    function rendreRencontre() {
+      if (!etat.rencontre) etat.rencontre = rencontreVide();
+      var r = etat.rencontre;
+      remplirSelect(document.getElementById('rencontre-eleve'), false, r.eleveId, !!r.id);
+      document.getElementById('rencontre-eleve').disabled = !!r.id;
+      document.getElementById('rencontre-date').value = r.date || etat.aujourdhui;
+      document.getElementById('champ-forces').value = r.forcesPrincipales || '';
+      document.getElementById('champ-defis').value = r.defisPrioritaires || '';
+      document.getElementById('champ-objectif').value = r.objectif || '';
+      document.getElementById('champ-commentaires').value = r.commentaires || '';
+      document.getElementById('champ-notes').value = r.notesInternes || '';
+      document.getElementById('sections-rencontre').innerHTML = (etat.catalogue.sections || []).map(function (sec, index) {
+        return htmlSection(sec, r.choix, index === 0);
+      }).join('');
+      document.getElementById('etat-rencontre').textContent = r.enregistreLe
+        ? 'Enregistrée le ' + r.enregistreLe + '.'
+        : 'Nouvelle rencontre.';
+      mettreBadges();
+    }
+
+    function htmlSection(sec, choix, ouvert) {
+      var choisi = {};
+      (choix || []).forEach(function (c) { choisi[c.section + '|' + c.type + '|' + c.code] = true; });
+      var forces = sec.items.map(function (it) {
+        return ligneCoche(sec.code, 'FORCE', it.code, it.force, '', choisi);
+      }).join('');
+      var defis = sec.items.map(function (it) {
+        return ligneCoche(sec.code, 'DEFI', it.code, it.defi, '', choisi);
+      }).join('');
+      var propres = sec.strategies.filter(function (s) { return !s.transversale; });
+      var trans = sec.strategies.filter(function (s) { return s.transversale; });
+      return '<details' + (ouvert ? ' open' : '') + '><summary><span>' + echapper(sec.titre) +
+        '</span><span class="badge" data-badge="' + sec.code + '"></span></summary>' +
+        '<div class="deux"><div><h3>Forces</h3><div class="liste-coche">' + forces + '</div></div>' +
+        '<div><h3>Défis</h3><div class="liste-coche">' + defis + '</div></div></div>' +
+        '<h3>Stratégies pour la famille</h3><div class="liste-coche">' +
+        htmlGroupe(sec.code, 'Pour cette section', propres, choisi) +
+        htmlGroupe(sec.code, 'Stratégies transversales', trans, choisi) +
+        '</div></details>';
+    }
+
+    function htmlGroupe(section, titre, liste, choisi) {
+      if (!liste.length) return '';
+      return '<p class="groupe">' + echapper(titre) + '</p>' + liste.map(function (s) {
+        return ligneCoche(section, 'STRATEGIE', s.code, s.nom, s.utilisation, choisi);
+      }).join('');
+    }
+
+    function ligneCoche(section, type, code, libelle, detail, choisi) {
+      var on = choisi[section + '|' + type + '|' + code] ? ' checked' : '';
+      return '<label class="coche"><input type="checkbox" data-section="' + section + '" data-type="' + type +
+        '" data-code="' + code + '"' + on + '><span><span>' + echapper(libelle) + '</span>' +
+        (detail ? '<small>' + echapper(detail) + '</small>' : '') + '</span></label>';
+    }
+
+    function changementChoix(ev) {
+      var input = ev.target;
+      if (!input || input.type !== 'checkbox') return;
+      var type = input.getAttribute('data-type');
+      if (input.checked && (type === 'FORCE' || type === 'DEFI')) {
+        var autre = type === 'FORCE' ? 'DEFI' : 'FORCE';
+        var frere = document.querySelector(
+          '#sections-rencontre input[data-section="' + input.getAttribute('data-section') +
+          '"][data-type="' + autre + '"][data-code="' + input.getAttribute('data-code') + '"]'
+        );
+        if (frere) frere.checked = false;
+      }
+      lireRencontreDom();
+      mettreBadges();
+    }
+
+    function mettreBadges() {
+      document.querySelectorAll('[data-badge]').forEach(function (el) {
+        var section = el.getAttribute('data-badge');
+        var forces = compte(section, 'FORCE');
+        var defis = compte(section, 'DEFI');
+        var strategies = compte(section, 'STRATEGIE');
+        if (!forces && !defis && !strategies) {
+          el.textContent = 'Aucun choix';
+          return;
+        }
+        var morceaux = [];
+        if (forces) morceaux.push(forces + (forces > 1 ? ' forces' : ' force'));
+        if (defis) morceaux.push(defis + (defis > 1 ? ' défis' : ' défi'));
+        if (strategies) morceaux.push(strategies + (strategies > 1 ? ' stratégies' : ' stratégie'));
+        el.textContent = morceaux.join(' · ');
+      });
+    }
+
+    function compte(section, type) {
+      return document.querySelectorAll(
+        '#sections-rencontre input[data-section="' + section + '"][data-type="' + type + '"]:checked'
+      ).length;
+    }
+
+    function lireRencontreDom() {
+      if (!document.getElementById('rencontre-date') || document.getElementById('ecran-rencontre').hidden) return;
+      var r = etat.rencontre;
+      if (!r) return;
+      r.date = document.getElementById('rencontre-date').value;
+      if (!document.getElementById('rencontre-eleve').disabled) {
+        r.eleveId = document.getElementById('rencontre-eleve').value;
+      }
+      r.forcesPrincipales = document.getElementById('champ-forces').value;
+      r.defisPrioritaires = document.getElementById('champ-defis').value;
+      r.objectif = document.getElementById('champ-objectif').value;
+      r.commentaires = document.getElementById('champ-commentaires').value;
+      r.notesInternes = document.getElementById('champ-notes').value;
+      r.choix = [];
+      document.querySelectorAll('#sections-rencontre input:checked').forEach(function (input) {
+        r.choix.push({
+          section: input.getAttribute('data-section'),
+          type: input.getAttribute('data-type'),
+          code: input.getAttribute('data-code')
+        });
+      });
+    }
+
+    function sauverRencontre() {
+      lireRencontreDom();
+      var r = etat.rencontre;
+      occuper(function () {
+        return appeler('enregistrerRencontre', {
+          id: r.id,
+          eleveId: r.eleveId,
+          date: r.date,
+          forcesPrincipales: r.forcesPrincipales,
+          defisPrioritaires: r.defisPrioritaires,
+          objectif: r.objectif,
+          commentaires: r.commentaires,
+          notesInternes: r.notesInternes,
+          choix: r.choix
+        }).then(function (rep) {
+          r.id = rep.id;
+          r.enregistreLe = rep.enregistreLe;
+          r.date = rep.date;
+          document.getElementById('rencontre-eleve').disabled = true;
+          document.getElementById('etat-rencontre').textContent = 'Enregistrée le ' + rep.enregistreLe + '.';
+          memoriser();
+          montrerMessage('Rencontre enregistrée.', false);
+        });
+      });
+    }
+
+    function nouvelleRencontre() {
+      lireRencontreDom();
+      if (signature(etat.rencontre) !== instantane) {
+        if (!window.confirm('Ouvrir une nouvelle rencontre ? Ce qui n’est pas enregistré sera perdu.')) return;
+      }
+      var eleveId = etat.rencontre ? etat.rencontre.eleveId : '';
+      var eleve = eleveParId(eleveId);
+      if (!eleve || eleve.actif !== 'OUI') eleveId = '';
+      etat.rencontre = rencontreVide(eleveId);
+      rendreRencontre();
+      memoriser();
+      montrerMessage('', false);
+    }
+
+    function imprimerCourante() {
+      lireRencontreDom();
+      if (!etat.rencontre || !etat.rencontre.eleveId) {
+        montrerMessage('Choisissez un élève.', true);
+        return;
+      }
+      construireFeuille(etat.rencontre);
+      window.print();
+    }
+
+    function rendreSuivi() {
+      var select = document.getElementById('suivi-eleve');
+      if (!select.options.length) remplirSelect(select, true, '');
+      var id = select.value;
+      var liste = document.getElementById('liste-suivi');
+      if (!id) {
+        liste.innerHTML = '<p class="vide">Choisissez un élève pour voir ses rencontres.</p>';
+        return;
+      }
+      occuper(function () {
+        return appeler('listerRencontres', { eleveId: id }).then(function (rencontres) {
+          if (!rencontres.length) {
+            liste.innerHTML = '<p class="vide">Aucune rencontre enregistrée pour cet élève.</p>';
+            return;
+          }
+          liste.innerHTML = rencontres.map(function (item) {
+            return '<article class="carte"><div><h2>' + echapper(dateLongue(item.date)) + '</h2><p>Enregistrée le ' +
+              echapper(item.enregistreLe) + '</p></div><div class="actions">' +
+              '<button class="secondaire" type="button" data-action="ouvrir" data-id="' + echapper(item.id) + '">Ouvrir</button>' +
+              '<button class="secondaire" type="button" data-action="imprimer" data-id="' + echapper(item.id) + '">Imprimer</button></div></article>';
+          }).join('');
+        });
+      });
+    }
+
+    function clicSuivi(ev) {
+      var bouton = ev.target.closest('button');
+      if (!bouton) return;
+      var id = bouton.getAttribute('data-id');
+      var action = bouton.getAttribute('data-action');
+      if (signature(etat.rencontre) !== instantane) {
+        if (!window.confirm('Ouvrir cette rencontre ? Ce qui n’est pas enregistré sera perdu.')) return;
+      }
+      occuper(function () {
+        return appeler('obtenirRencontre', { id: id }).then(function (rencontre) {
+          etat.rencontre = rencontre;
+          afficher('rencontre');
+          memoriser();
+          if (action === 'imprimer') {
+            construireFeuille(rencontre);
+            window.print();
+          }
+        });
+      });
+    }
+
+    function rendreEnseignant() {
+      var e = etat.enseignant || enseignantVideLocal();
+      document.getElementById('ens-prenom').value = e.prenom || '';
+      document.getElementById('ens-nom').value = e.nom || '';
+      document.getElementById('ens-courriel').value = e.courriel || '';
+      document.getElementById('ens-telephone').value = e.telephone || '';
+      document.getElementById('ens-ecole').value = e.ecole || '';
+      document.getElementById('ens-classe').value = e.classe || '';
+      document.getElementById('ens-annee').value = e.annee || '';
+      document.getElementById('logo-etat').textContent = (etat.logo && etat.logo.message) || '';
+      var lien = document.getElementById('lien-dossier');
+      if (etat.dossier && etat.dossier.url) {
+        lien.innerHTML = '<a href="' + echapper(etat.dossier.url) + '" target="_blank" rel="noopener">Ouvrir le dossier Identité</a>';
+      } else {
+        lien.textContent = '';
+      }
+    }
+
+    function sauverEnseignant() {
+      var data = {
+        prenom: document.getElementById('ens-prenom').value,
+        nom: document.getElementById('ens-nom').value,
+        courriel: document.getElementById('ens-courriel').value,
+        telephone: document.getElementById('ens-telephone').value,
+        ecole: document.getElementById('ens-ecole').value,
+        classe: document.getElementById('ens-classe').value,
+        annee: document.getElementById('ens-annee').value
+      };
+      occuper(function () {
+        return appeler('enregistrerEnseignant', data).then(function (enseignant) {
+          etat.enseignant = enseignant;
+          document.getElementById('sous-titre').textContent = sousTitre();
+          montrerMessage('Fiche enseignant enregistrée.', false);
+        });
+      });
+    }
+
+    function construireFeuille(r) {
+      var eleve = eleveParId(r.eleveId);
+      var e = etat.enseignant || {};
+      var contact = [e.courriel, e.telephone].filter(function (v) { return v; }).join(' · ');
+      var meta = [e.classe, e.annee].filter(function (v) { return v; }).join(' · ');
+      var choix = {};
+      (r.choix || []).forEach(function (c) { choix[c.section + '|' + c.type + '|' + c.code] = true; });
+      var sections = (etat.catalogue.sections || []).map(function (sec) {
+        return htmlSectionImpression(sec, choix);
+      }).join('');
+      var synthese = blocTexte('Forces principales', r.forcesPrincipales) +
+        blocTexte('Défis prioritaires', r.defisPrioritaires) +
+        blocTexte('Objectif pour la prochaine étape', r.objectif) +
+        blocTexte('Commentaires', r.commentaires);
+      document.getElementById('feuille').innerHTML =
+        '<div class="feuille-page"><header class="feuille-entete"><div>' +
+        (e.ecole ? '<p class="marque" style="font-size:22px;margin:0">' + echapper(e.ecole) + '</p>' : '') +
+        '<p style="margin:4px 0 0">' + echapper((e.prenom + ' ' + e.nom).trim()) + '</p>' +
+        (meta ? '<p style="margin:0">' + echapper(meta) + '</p>' : '') +
+        (contact ? '<p style="margin:0">' + echapper(contact) + '</p>' : '') +
+        '</div><div class="logo-cadre">' + htmlLogo() + '</div></header>' +
+        '<h1>Rencontre de parents</h1>' +
+        '<p class="qui">' + echapper(eleve ? nomEleve(eleve) : '') + '</p>' +
+        '<p class="quand">' + echapper(dateLongue(r.date)) + '</p>' +
+        sections +
+        (synthese ? '<section class="bloc-section"><h2>Synthèse</h2>' + synthese + '</section>' : '') +
+        '<p class="pied">Document remis lors de la rencontre de parents.</p></div>';
+    }
+
+    function htmlSectionImpression(sec, choix) {
+      var forces = sec.items.filter(function (it) { return choix[sec.code + '|FORCE|' + it.code]; });
+      var defis = sec.items.filter(function (it) { return choix[sec.code + '|DEFI|' + it.code]; });
+      var strategies = sec.strategies.filter(function (s) { return choix[sec.code + '|STRATEGIE|' + s.code]; });
+      if (!forces.length && !defis.length && !strategies.length) return '';
+      var colonnes = '';
+      if (forces.length || defis.length) {
+        colonnes = '<div class="deux"><div><h3>Forces</h3>' + listePuces(forces, 'force') +
+          '</div><div><h3>Défis</h3>' + listePuces(defis, 'defi') + '</div></div>';
+      }
+      var blocStrat = strategies.map(function (s) {
+        return '<article class="strategie"><h4>' + echapper(s.nom) + '</h4><p>' + echapper(s.utilisation) +
+          '</p><p class="exemple">' + echapper(s.exemple) + '</p></article>';
+      }).join('');
+      return '<section class="bloc-section"><h2>' + echapper(sec.titre) + '</h2>' + colonnes +
+        (blocStrat ? '<h3>Stratégies à la maison</h3>' + blocStrat : '') + '</section>';
+    }
+
+    function listePuces(items, champ) {
+      if (!items.length) return '<p class="vide">—</p>';
+      return '<ul>' + items.map(function (it) { return '<li>' + echapper(it[champ]) + '</li>'; }).join('') + '</ul>';
+    }
+
+    function blocTexte(titre, texte) {
+      if (!String(texte || '').trim()) return '';
+      return '<h3>' + titre + '</h3><p>' + echapper(texte).replace(/\n/g, '<br>') + '</p>';
+    }
+
+    function htmlLogo() {
+      var logo = etat.logo;
+      if (logo && logo.present && logo.base64 && String(logo.mime || '').indexOf('image/') === 0) {
+        return '<img alt="Logo de l’école" src="data:' + logo.mime + ';base64,' + logo.base64 + '">';
+      }
+      return '<span>Logo</span>';
+    }
+
+    function remplirSelect(select, archives, selection, garderArchive) {
+      var html = '<option value="">Choisir un élève</option>';
+      etat.eleves.forEach(function (eleve) {
+        if (!archives && eleve.actif !== 'OUI' && !(garderArchive && eleve.id === selection)) return;
+        var suffixe = eleve.actif === 'NON' ? ' (archivé)' : '';
+        html += '<option value="' + echapper(eleve.id) + '"' + (eleve.id === selection ? ' selected' : '') + '>' +
+          echapper(nomEleve(eleve) + suffixe) + '</option>';
+      });
+      select.innerHTML = html;
+    }
+
+    function remplacerEleve(eleve) {
+      var trouve = false;
+      for (var i = 0; i < etat.eleves.length; i++) {
+        if (etat.eleves[i].id === eleve.id) {
+          etat.eleves[i] = eleve;
+          trouve = true;
+        }
+      }
+      if (!trouve) etat.eleves.push(eleve);
+      etat.eleves.sort(function (a, b) {
+        if (a.actif !== b.actif) return a.actif === 'OUI' ? -1 : 1;
+        var na = (a.nom + ' ' + a.prenom).toLowerCase();
+        var nb = (b.nom + ' ' + b.prenom).toLowerCase();
+        if (na < nb) return -1;
+        if (na > nb) return 1;
+        return a.id < b.id ? -1 : 1;
+      });
+    }
+
+    function eleveParId(id) {
+      for (var i = 0; i < etat.eleves.length; i++) {
+        if (etat.eleves[i].id === id) return etat.eleves[i];
+      }
+      return null;
+    }
+
+    function nomEleve(eleve) {
+      return ((eleve.prenom || '') + ' ' + (eleve.nom || '')).replace(/^\s+|\s+$/g, '');
+    }
+
+    function signature(r) {
+      if (!r) return '';
+      var choix = (r.choix || []).map(function (c) {
+        return c.section + '|' + c.type + '|' + c.code;
+      }).sort();
+      return JSON.stringify({
+        id: r.id || '',
+        eleveId: r.eleveId || '',
+        date: r.date || '',
+        forcesPrincipales: r.forcesPrincipales || '',
+        defisPrioritaires: r.defisPrioritaires || '',
+        objectif: r.objectif || '',
+        commentaires: r.commentaires || '',
+        notesInternes: r.notesInternes || '',
+        choix: choix
+      });
+    }
+
+    function memoriser() {
+      instantane = signature(etat.rencontre);
+    }
+
+    function dateLongue(iso) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+      if (!m) return iso || '';
+      return Number(m[3]) + ' ' + MOIS[Number(m[2]) - 1] + ' ' + m[1];
+    }
+
+    function dateLocaleISO(dt) {
+      var mois = String(dt.getMonth() + 1);
+      var jour = String(dt.getDate());
+      if (mois.length < 2) mois = '0' + mois;
+      if (jour.length < 2) jour = '0' + jour;
+      return dt.getFullYear() + '-' + mois + '-' + jour;
+    }
+
+    function echapper(valeur) {
+      return String(valeur == null ? '' : valeur)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function montrerMessage(texte, erreur) {
+      var el = document.getElementById('message');
+      el.textContent = texte || '';
+      el.className = erreur ? 'erreur' : 'ok';
+    }
+
+    function messageErreur(err) {
+      if (!err) return 'Une erreur est survenue.';
+      if (typeof err === 'string') return err;
+      return err.message || 'Une erreur est survenue.';
+    }
+
+    function occuper(fn) {
+      if (occupe) return;
+      occupe = true;
+      Promise.resolve().then(fn).catch(function (err) {
+        montrerMessage(messageErreur(err), true);
+      }).then(function () {
+        occupe = false;
+      });
+    }
+
+    function appeler(nom, arg) {
+      if (window.__apercu) return apercuAppeler(nom, arg);
+      return new Promise(function (resolve, reject) {
+        var runner = google.script.run.withSuccessHandler(resolve).withFailureHandler(reject);
+        if (arg === undefined) runner[nom]();
+        else runner[nom](arg);
+      });
+    }
+
+    function chargerCatalogueLocal() {
+      return Promise.all([
+        fetch('../referentiel/grille.json').then(function (r) { return r.json(); }),
+        fetch('../referentiel/strategies.json').then(function (r) { return r.json(); }),
+        fetch('../referentiel/correspondance.json').then(function (r) { return r.json(); })
+      ]).then(function (res) {
+        var strategies = {};
+        res[1].strategies.forEach(function (s) { strategies[s.code] = s; });
+        return {
+          sections: res[0].sections.map(function (sec) {
+            return {
+              code: sec.code,
+              titre: sec.titre,
+              items: sec.items,
+              strategies: res[2].liens.filter(function (l) { return l.section === sec.code; }).map(function (l) {
+                var s = strategies[l.strategie];
+                return {
+                  code: s.code,
+                  nom: s.nom,
+                  utilisation: s.utilisation,
+                  exemple: s.exemple,
+                  transversale: s.bloc === 'Stratégies transversales'
+                };
+              })
+            };
+          })
+        };
+      });
+    }
+
+    var apercuBase = { eleves: [], rencontres: [], choix: [], seqE: 1, seqR: 1 };
+
+    function apercuAppeler(nom, arg) {
+      arg = arg || {};
+      if (nom === 'obtenirContexte') {
+        return Promise.resolve({
+          aujourdHui: etat.aujourdhui,
+          enseignant: etat.enseignant,
+          eleves: etat.eleves.slice(),
+          catalogue: etat.catalogue
+        });
+      }
+      if (nom === 'obtenirLogo') return Promise.resolve(etat.logo);
+      if (nom === 'obtenirDossier') return Promise.resolve(null);
+      if (nom === 'enregistrerEnseignant') {
+        etat.enseignant = {
+          prenom: String(arg.prenom || '').trim(),
+          nom: String(arg.nom || '').trim(),
+          courriel: String(arg.courriel || '').trim(),
+          telephone: String(arg.telephone || '').trim(),
+          ecole: String(arg.ecole || '').trim(),
+          classe: String(arg.classe || '').trim(),
+          annee: String(arg.annee || '').trim()
+        };
+        return Promise.resolve(etat.enseignant);
+      }
+      if (nom === 'enregistrerEleve') {
+        var prenom = String(arg.prenom || '').trim();
+        var nomFamille = String(arg.nom || '').trim();
+        if (!prenom || !nomFamille) return Promise.reject(new Error('Indiquez le prénom et le nom.'));
+        if (arg.id) {
+          var existant = eleveParId(arg.id);
+          if (!existant) return Promise.reject(new Error('Cet élève est introuvable.'));
+          existant.prenom = prenom;
+          existant.nom = nomFamille;
+          return Promise.resolve(existant);
+        }
+        var id = 'ELV-' + ('00' + apercuBase.seqE).slice(-3);
+        apercuBase.seqE += 1;
+        var eleve = { id: id, prenom: prenom, nom: nomFamille, actif: 'OUI', creeLe: etat.aujourdhui + ' 12:00' };
+        return Promise.resolve(eleve);
+      }
+      if (nom === 'definirActif') {
+        var cible = eleveParId(arg.id);
+        if (!cible) return Promise.reject(new Error('Cet élève est introuvable.'));
+        cible.actif = arg.actif === 'NON' ? 'NON' : 'OUI';
+        return Promise.resolve(cible);
+      }
+      if (nom === 'listerRencontres') {
+        var liste = apercuBase.rencontres.filter(function (item) { return item.eleveId === arg.eleveId; });
+        liste.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+        return Promise.resolve(liste.map(function (item) {
+          return { id: item.id, eleveId: item.eleveId, date: item.date, enregistreLe: item.enregistreLe };
+        }));
+      }
+      if (nom === 'obtenirRencontre') {
+        var fiche = null;
+        apercuBase.rencontres.forEach(function (item) { if (item.id === arg.id) fiche = item; });
+        if (!fiche) return Promise.reject(new Error('Cette rencontre est introuvable.'));
+        return Promise.resolve(JSON.parse(JSON.stringify(fiche)));
+      }
+      if (nom === 'enregistrerRencontre') {
+        if (!arg.eleveId) return Promise.reject(new Error('Choisissez un élève.'));
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(arg.date || '')) return Promise.reject(new Error('Indiquez la date de la rencontre.'));
+        var exclus = {};
+        var choix = arg.choix || [];
+        for (var i = 0; i < choix.length; i++) {
+          if (choix[i].type !== 'FORCE' && choix[i].type !== 'DEFI') continue;
+          var cle = choix[i].section + '|' + choix[i].code;
+          if (exclus[cle] && exclus[cle] !== choix[i].type) {
+            return Promise.reject(new Error('Une même conduite ne peut pas être à la fois une force et un défi.'));
+          }
+          exclus[cle] = choix[i].type;
+        }
+        var quand = etat.aujourdhui + ' 12:00';
+        var rid = arg.id;
+        if (!rid) {
+          rid = 'RNC-' + ('00' + apercuBase.seqR).slice(-3);
+          apercuBase.seqR += 1;
+        }
+        var ficheNouvelle = {
+          id: rid,
+          eleveId: arg.eleveId,
+          date: arg.date,
+          enregistreLe: quand,
+          forcesPrincipales: arg.forcesPrincipales || '',
+          defisPrioritaires: arg.defisPrioritaires || '',
+          objectif: arg.objectif || '',
+          commentaires: arg.commentaires || '',
+          notesInternes: arg.notesInternes || '',
+          choix: choix
+        };
+        var remplace = false;
+        for (var j = 0; j < apercuBase.rencontres.length; j++) {
+          if (apercuBase.rencontres[j].id === rid) {
+            apercuBase.rencontres[j] = ficheNouvelle;
+            remplace = true;
+          }
+        }
+        if (!remplace) apercuBase.rencontres.push(ficheNouvelle);
+        return Promise.resolve({ id: rid, eleveId: arg.eleveId, date: arg.date, enregistreLe: quand });
+      }
+      return Promise.reject(new Error('Une erreur est survenue.'));
+    }
+  </script>
+</body>
+</html>

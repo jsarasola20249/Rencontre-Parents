@@ -1,0 +1,492 @@
+{
+  "liens": [
+    {
+      "section": "COMP",
+      "strategie": "REG-01"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-02"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-03"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-04"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-05"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-06"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-07"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-08"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-09"
+    },
+    {
+      "section": "COMP",
+      "strategie": "REG-10"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "COMP",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-01"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-02"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-03"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-04"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-05"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-06"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-07"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-08"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-09"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "MOTI-10"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "MOTIV",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-01"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-02"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-03"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-04"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-05"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-06"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-07"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "ATT-08"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "ATTN",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-01"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-02"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-03"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-04"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-05"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-06"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-07"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-08"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "EXE-09"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "AUTO",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-01"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-02"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-03"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-04"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-05"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-06"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-07"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-08"
+    },
+    {
+      "section": "LECT",
+      "strategie": "FR-14"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "LECT",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "FR-09"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "FR-10"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "FR-11"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "FR-12"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "FR-13"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "ECRI",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-01"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-02"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-03"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-05"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-08"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-10"
+    },
+    {
+      "section": "NUM",
+      "strategie": "MATH-12"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "NUM",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-04"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-06"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-07"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-09"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-11"
+    },
+    {
+      "section": "CALC",
+      "strategie": "MATH-12"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "CALC",
+      "strategie": "TRAN-06"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "EXE-07"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "EXE-03"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "ATT-05"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "ATT-01"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-01"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-02"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-03"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-04"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-05"
+    },
+    {
+      "section": "MOTR",
+      "strategie": "TRAN-06"
+    }
+  ]
+}

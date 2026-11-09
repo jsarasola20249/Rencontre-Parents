@@ -1,0 +1,688 @@
+{
+  "sections": [
+    {
+      "code": "COMP",
+      "titre": "Comportement et relations avec les autres",
+      "items": [
+        {
+          "code": "COMP-01",
+          "force": "Respecte les règles de la classe",
+          "defi": "Respecter les règles de la classe"
+        },
+        {
+          "code": "COMP-02",
+          "force": "Suit les consignes de l'enseignante",
+          "defi": "Suivre les consignes données"
+        },
+        {
+          "code": "COMP-03",
+          "force": "Attend son tour pour parler",
+          "defi": "Attendre son tour pour parler"
+        },
+        {
+          "code": "COMP-04",
+          "force": "Lève la main avant de prendre la parole",
+          "defi": "Lever la main avant de prendre la parole"
+        },
+        {
+          "code": "COMP-05",
+          "force": "Écoute les autres sans les interrompre",
+          "defi": "Écouter les autres sans les interrompre"
+        },
+        {
+          "code": "COMP-06",
+          "force": "Respecte les autres élèves et leur espace personnel",
+          "defi": "Respecter les autres élèves et leur espace personnel"
+        },
+        {
+          "code": "COMP-07",
+          "force": "Utilise un ton de voix adapté",
+          "defi": "Adapter son ton de voix aux situations"
+        },
+        {
+          "code": "COMP-08",
+          "force": "Se déplace calmement dans la classe",
+          "defi": "Se déplacer calmement dans la classe"
+        },
+        {
+          "code": "COMP-09",
+          "force": "Utilise le matériel de façon appropriée",
+          "defi": "Utiliser le matériel de façon appropriée"
+        },
+        {
+          "code": "COMP-10",
+          "force": "Participe positivement à la vie de classe",
+          "defi": "Participer positivement à la vie de classe"
+        },
+        {
+          "code": "COMP-11",
+          "force": "Accepte les rappels de l'adulte",
+          "defi": "Accepter les rappels de l'adulte"
+        },
+        {
+          "code": "COMP-12",
+          "force": "Respecte les routines et les transitions",
+          "defi": "Respecter les routines et les transitions"
+        },
+        {
+          "code": "COMP-13",
+          "force": "Partage le matériel avec les autres",
+          "defi": "Partager le matériel avec les autres"
+        },
+        {
+          "code": "COMP-14",
+          "force": "Joue et collabore avec les autres élèves",
+          "defi": "Participer aux jeux et aux activités avec les autres"
+        },
+        {
+          "code": "COMP-15",
+          "force": "Gère les désaccords avec calme",
+          "defi": "Apprendre à résoudre les désaccords avec calme"
+        },
+        {
+          "code": "COMP-16",
+          "force": "Demande de l'aide lorsqu'une situation est difficile",
+          "defi": "Demander de l'aide lorsqu'une situation est difficile"
+        }
+      ]
+    },
+    {
+      "code": "MOTIV",
+      "titre": "Motivation, participation et persévérance",
+      "items": [
+        {
+          "code": "MOTIV-01",
+          "force": "Participe activement aux activités",
+          "defi": "Participer davantage aux activités"
+        },
+        {
+          "code": "MOTIV-02",
+          "force": "Montre de l'intérêt pour les apprentissages",
+          "defi": "Développer son intérêt pour les apprentissages"
+        },
+        {
+          "code": "MOTIV-03",
+          "force": "Pose des questions pertinentes",
+          "defi": "Poser des questions lorsqu'il ou elle ne comprend pas"
+        },
+        {
+          "code": "MOTIV-04",
+          "force": "Partage ses idées avec le groupe",
+          "defi": "Partager davantage ses idées avec le groupe"
+        },
+        {
+          "code": "MOTIV-05",
+          "force": "Essaie les activités proposées",
+          "defi": "Essayer les activités proposées"
+        },
+        {
+          "code": "MOTIV-06",
+          "force": "Accepte de relever de nouveaux défis",
+          "defi": "Accepter de relever de nouveaux défis"
+        },
+        {
+          "code": "MOTIV-07",
+          "force": "Fait preuve de curiosité",
+          "defi": "Développer sa curiosité"
+        },
+        {
+          "code": "MOTIV-08",
+          "force": "Persévère lorsque la tâche est difficile",
+          "defi": "Persévérer lorsque la tâche est difficile"
+        },
+        {
+          "code": "MOTIV-09",
+          "force": "Accepte de recommencer après une erreur",
+          "defi": "Accepter de recommencer après une erreur"
+        },
+        {
+          "code": "MOTIV-10",
+          "force": "Maintient ses efforts pendant une activité",
+          "defi": "Maintenir ses efforts pendant une activité"
+        },
+        {
+          "code": "MOTIV-11",
+          "force": "Termine les activités commencées",
+          "defi": "Terminer les activités commencées"
+        },
+        {
+          "code": "MOTIV-12",
+          "force": "S'engage dans les activités moins familières",
+          "defi": "Participer aux activités moins familières"
+        },
+        {
+          "code": "MOTIV-13",
+          "force": "Prend plaisir à apprendre",
+          "defi": "Développer le plaisir d'apprendre"
+        }
+      ]
+    },
+    {
+      "code": "ATTN",
+      "titre": "Attention et concentration",
+      "items": [
+        {
+          "code": "ATTN-01",
+          "force": "Écoute les explications en grand groupe",
+          "defi": "Écouter les explications en grand groupe"
+        },
+        {
+          "code": "ATTN-02",
+          "force": "Maintient son attention pendant les explications",
+          "defi": "Maintenir son attention pendant les explications"
+        },
+        {
+          "code": "ATTN-03",
+          "force": "Reste concentré pendant le travail individuel",
+          "defi": "Rester concentré pendant le travail individuel"
+        },
+        {
+          "code": "ATTN-04",
+          "force": "Écoute les consignes jusqu'à la fin",
+          "defi": "Écouter les consignes jusqu'à la fin"
+        },
+        {
+          "code": "ATTN-05",
+          "force": "Commence son travail après les consignes",
+          "defi": "Commencer son travail après les consignes"
+        },
+        {
+          "code": "ATTN-06",
+          "force": "Travaille sans se laisser distraire",
+          "defi": "Limiter les distractions pendant le travail"
+        },
+        {
+          "code": "ATTN-07",
+          "force": "Revient à son travail après une distraction",
+          "defi": "Revenir à son travail après une distraction"
+        },
+        {
+          "code": "ATTN-08",
+          "force": "Maintient son attention jusqu'à la fin d'une tâche",
+          "defi": "Maintenir son attention jusqu'à la fin d'une tâche"
+        },
+        {
+          "code": "ATTN-09",
+          "force": "Suit les différentes étapes d'une activité",
+          "defi": "Suivre les différentes étapes d'une activité"
+        },
+        {
+          "code": "ATTN-10",
+          "force": "Maintient un rythme de travail adapté",
+          "defi": "Maintenir un rythme de travail adapté"
+        },
+        {
+          "code": "ATTN-11",
+          "force": "Termine son travail dans le temps prévu",
+          "defi": "Terminer son travail dans le temps prévu"
+        },
+        {
+          "code": "ATTN-12",
+          "force": "Vérifie son travail avant de le remettre",
+          "defi": "Prendre le temps de vérifier son travail"
+        },
+        {
+          "code": "ATTN-13",
+          "force": "Réalise les activités avec peu de rappels",
+          "defi": "Réaliser les activités avec moins de rappels"
+        }
+      ]
+    },
+    {
+      "code": "AUTO",
+      "titre": "Autonomie et organisation",
+      "items": [
+        {
+          "code": "AUTO-01",
+          "force": "Prépare son matériel pour les activités",
+          "defi": "Préparer son matériel pour les activités"
+        },
+        {
+          "code": "AUTO-02",
+          "force": "Retrouve facilement son matériel",
+          "defi": "Retrouver son matériel dans son cartable"
+        },
+        {
+          "code": "AUTO-03",
+          "force": "Organise son espace de travail",
+          "defi": "Organiser son espace de travail"
+        },
+        {
+          "code": "AUTO-04",
+          "force": "Range son matériel après les activités",
+          "defi": "Ranger son matériel après les activités"
+        },
+        {
+          "code": "AUTO-05",
+          "force": "Suit les routines de la classe",
+          "defi": "Suivre les routines de la classe"
+        },
+        {
+          "code": "AUTO-06",
+          "force": "Se met au travail de façon autonome",
+          "defi": "Se mettre au travail de façon autonome"
+        },
+        {
+          "code": "AUTO-07",
+          "force": "Réalise les tâches sans aide constante",
+          "defi": "Réaliser les tâches avec moins d'aide"
+        },
+        {
+          "code": "AUTO-08",
+          "force": "Essaie une stratégie avant de demander de l'aide",
+          "defi": "Essayer une stratégie avant de demander de l'aide"
+        },
+        {
+          "code": "AUTO-09",
+          "force": "Utilise les outils disponibles en classe",
+          "defi": "Utiliser les outils disponibles en classe"
+        },
+        {
+          "code": "AUTO-10",
+          "force": "Respecte les étapes d'une tâche",
+          "defi": "Respecter les étapes d'une tâche"
+        },
+        {
+          "code": "AUTO-11",
+          "force": "Prend soin de son matériel",
+          "defi": "Prendre soin de son matériel"
+        },
+        {
+          "code": "AUTO-12",
+          "force": "Se prépare aux changements d'activité",
+          "defi": "Se préparer aux changements d'activité"
+        },
+        {
+          "code": "AUTO-13",
+          "force": "Gère son matériel dans son cartable",
+          "defi": "Organiser son matériel dans son cartable"
+        }
+      ]
+    },
+    {
+      "code": "LECT",
+      "titre": "Français – Lecture",
+      "items": [
+        {
+          "code": "LECT-01",
+          "force": "Reconnaît les lettres de l'alphabet",
+          "defi": "Reconnaître les lettres de l'alphabet"
+        },
+        {
+          "code": "LECT-02",
+          "force": "Associe les lettres aux sons correspondants",
+          "defi": "Associer les lettres aux sons correspondants"
+        },
+        {
+          "code": "LECT-03",
+          "force": "Reconnaît les voyelles et les consonnes",
+          "defi": "Reconnaître les voyelles et les consonnes"
+        },
+        {
+          "code": "LECT-04",
+          "force": "Identifie les sons dans les mots",
+          "defi": "Identifier les sons dans les mots"
+        },
+        {
+          "code": "LECT-05",
+          "force": "Lit des syllabes simples",
+          "defi": "Lire des syllabes simples"
+        },
+        {
+          "code": "LECT-06",
+          "force": "Fusionne les syllabes pour lire des mots",
+          "defi": "Fusionner les syllabes pour lire des mots"
+        },
+        {
+          "code": "LECT-07",
+          "force": "Lit des mots simples",
+          "defi": "Lire des mots simples sans aide"
+        },
+        {
+          "code": "LECT-08",
+          "force": "Reconnaît les mots étudiés en classe",
+          "defi": "Reconnaître les mots étudiés en classe"
+        },
+        {
+          "code": "LECT-09",
+          "force": "Lit des phrases courtes",
+          "defi": "Lire des phrases courtes"
+        },
+        {
+          "code": "LECT-10",
+          "force": "Respecte l'ordre des mots lorsqu'il ou elle lit",
+          "defi": "Lire les mots dans le bon ordre"
+        },
+        {
+          "code": "LECT-11",
+          "force": "Décode les mots plutôt que de les deviner",
+          "defi": "Décoder les mots plutôt que les deviner"
+        },
+        {
+          "code": "LECT-12",
+          "force": "Lit avec une certaine fluidité",
+          "defi": "Développer la fluidité en lecture"
+        },
+        {
+          "code": "LECT-13",
+          "force": "Comprend les phrases lues",
+          "defi": "Comprendre les phrases lues"
+        },
+        {
+          "code": "LECT-14",
+          "force": "Répond aux questions sur un texte",
+          "defi": "Répondre aux questions sur un texte"
+        },
+        {
+          "code": "LECT-15",
+          "force": "Repère des informations dans une phrase",
+          "defi": "Repérer des informations dans une phrase"
+        }
+      ]
+    },
+    {
+      "code": "ECRI",
+      "titre": "Français – Écriture",
+      "items": [
+        {
+          "code": "ECRI-01",
+          "force": "Forme correctement les lettres",
+          "defi": "Améliorer la formation des lettres"
+        },
+        {
+          "code": "ECRI-02",
+          "force": "Respecte le sens de formation des lettres",
+          "defi": "Respecter le sens de formation des lettres"
+        },
+        {
+          "code": "ECRI-03",
+          "force": "Écrit les lettres de façon lisible",
+          "defi": "Écrire les lettres de façon lisible"
+        },
+        {
+          "code": "ECRI-04",
+          "force": "Respecte l'espace entre les lettres et les mots",
+          "defi": "Respecter l'espace entre les lettres et les mots"
+        },
+        {
+          "code": "ECRI-05",
+          "force": "Écrit des syllabes simples",
+          "defi": "Écrire des syllabes simples"
+        },
+        {
+          "code": "ECRI-06",
+          "force": "Écrit des mots à partir des sons entendus",
+          "defi": "Écrire des mots à partir des sons entendus"
+        },
+        {
+          "code": "ECRI-07",
+          "force": "Écrit les mots étudiés en classe",
+          "defi": "Écrire les mots étudiés en classe"
+        },
+        {
+          "code": "ECRI-08",
+          "force": "Utilise les sons pour écrire des mots",
+          "defi": "Utiliser les sons pour écrire des mots"
+        },
+        {
+          "code": "ECRI-09",
+          "force": "Écrit des phrases simples",
+          "defi": "Construire des phrases simples"
+        },
+        {
+          "code": "ECRI-10",
+          "force": "Respecte l'ordre des mots dans une phrase",
+          "defi": "Respecter l'ordre des mots dans une phrase"
+        },
+        {
+          "code": "ECRI-11",
+          "force": "Replace les mots dans le bon ordre",
+          "defi": "Replacer les mots dans le bon ordre"
+        },
+        {
+          "code": "ECRI-12",
+          "force": "Utilise une majuscule au début d'une phrase",
+          "defi": "Utiliser une majuscule au début d'une phrase"
+        },
+        {
+          "code": "ECRI-13",
+          "force": "Utilise un point à la fin d'une phrase",
+          "defi": "Utiliser un point à la fin d'une phrase"
+        },
+        {
+          "code": "ECRI-14",
+          "force": "Sépare correctement les mots",
+          "defi": "Séparer correctement les mots"
+        },
+        {
+          "code": "ECRI-15",
+          "force": "Relit et vérifie son travail",
+          "defi": "Relire et vérifier son travail"
+        },
+        {
+          "code": "ECRI-16",
+          "force": "Termine les activités d'écriture",
+          "defi": "Terminer les activités d'écriture"
+        }
+      ]
+    },
+    {
+      "code": "NUM",
+      "titre": "Mathématiques – Numération",
+      "items": [
+        {
+          "code": "NUM-01",
+          "force": "Reconnaît les nombres étudiés",
+          "defi": "Reconnaître les nombres étudiés"
+        },
+        {
+          "code": "NUM-02",
+          "force": "Lit les nombres",
+          "defi": "Lire les nombres"
+        },
+        {
+          "code": "NUM-03",
+          "force": "Écrit les nombres correctement",
+          "defi": "Écrire les nombres correctement"
+        },
+        {
+          "code": "NUM-04",
+          "force": "Associe les nombres aux quantités",
+          "defi": "Associer les nombres aux quantités"
+        },
+        {
+          "code": "NUM-05",
+          "force": "Dénombre une collection d'objets",
+          "defi": "Dénombrer une collection d'objets"
+        },
+        {
+          "code": "NUM-06",
+          "force": "Compte sans oublier ni compter deux fois",
+          "defi": "Compter sans oublier ni compter deux fois"
+        },
+        {
+          "code": "NUM-07",
+          "force": "Compte à partir d'un nombre donné",
+          "defi": "Compter à partir d'un nombre donné"
+        },
+        {
+          "code": "NUM-08",
+          "force": "Compte à rebours",
+          "defi": "Compter à rebours"
+        },
+        {
+          "code": "NUM-09",
+          "force": "Trouve le nombre qui vient avant",
+          "defi": "Trouver le nombre qui vient avant"
+        },
+        {
+          "code": "NUM-10",
+          "force": "Trouve le nombre qui vient après",
+          "defi": "Trouver le nombre qui vient après"
+        },
+        {
+          "code": "NUM-11",
+          "force": "Compare deux nombres",
+          "defi": "Comparer deux nombres"
+        },
+        {
+          "code": "NUM-12",
+          "force": "Identifie le plus grand et le plus petit nombre",
+          "defi": "Identifier le plus grand et le plus petit nombre"
+        },
+        {
+          "code": "NUM-13",
+          "force": "Représente un nombre de différentes façons",
+          "defi": "Représenter un nombre de différentes façons"
+        },
+        {
+          "code": "NUM-14",
+          "force": "Comprend les notions de plus que et moins que",
+          "defi": "Comprendre les notions de plus que et moins que"
+        },
+        {
+          "code": "NUM-15",
+          "force": "Comprend la notion d'autant que",
+          "defi": "Comprendre la notion d'autant que"
+        }
+      ]
+    },
+    {
+      "code": "CALC",
+      "titre": "Mathématiques – Calcul et résolution de problèmes",
+      "items": [
+        {
+          "code": "CALC-01",
+          "force": "Résout des additions simples",
+          "defi": "Résoudre des additions simples"
+        },
+        {
+          "code": "CALC-02",
+          "force": "Résout des soustractions simples",
+          "defi": "Résoudre des soustractions simples"
+        },
+        {
+          "code": "CALC-03",
+          "force": "Utilise du matériel pour calculer",
+          "defi": "Utiliser du matériel pour calculer"
+        },
+        {
+          "code": "CALC-04",
+          "force": "Représente une addition avec des objets ou un dessin",
+          "defi": "Représenter une addition avec des objets ou un dessin"
+        },
+        {
+          "code": "CALC-05",
+          "force": "Représente une soustraction avec des objets ou un dessin",
+          "defi": "Représenter une soustraction avec des objets ou un dessin"
+        },
+        {
+          "code": "CALC-06",
+          "force": "Comprend les situations d'ajout",
+          "defi": "Comprendre les situations d'ajout"
+        },
+        {
+          "code": "CALC-07",
+          "force": "Comprend les situations de retrait",
+          "defi": "Comprendre les situations de retrait"
+        },
+        {
+          "code": "CALC-08",
+          "force": "Comprend les situations de partage",
+          "defi": "Comprendre les situations de partage"
+        },
+        {
+          "code": "CALC-09",
+          "force": "Comprend les situations de regroupement",
+          "defi": "Comprendre les situations de regroupement"
+        },
+        {
+          "code": "CALC-10",
+          "force": "Identifie ce que demande un problème",
+          "defi": "Identifier ce que demande un problème"
+        },
+        {
+          "code": "CALC-11",
+          "force": "Choisit une stratégie pour résoudre un problème",
+          "defi": "Choisir une stratégie pour résoudre un problème"
+        },
+        {
+          "code": "CALC-12",
+          "force": "Explique sa démarche",
+          "defi": "Expliquer sa démarche"
+        },
+        {
+          "code": "CALC-13",
+          "force": "Vérifie ses réponses",
+          "defi": "Vérifier ses réponses"
+        },
+        {
+          "code": "CALC-14",
+          "force": "Utilise les stratégies vues en classe",
+          "defi": "Utiliser les stratégies vues en classe"
+        },
+        {
+          "code": "CALC-15",
+          "force": "Résout des problèmes avec autonomie",
+          "defi": "Résoudre des problèmes avec plus d'autonomie"
+        }
+      ]
+    },
+    {
+      "code": "MOTR",
+      "titre": "Motricité fine et réalisation des travaux",
+      "items": [
+        {
+          "code": "MOTR-01",
+          "force": "Tient son crayon de façon fonctionnelle",
+          "defi": "Améliorer la prise du crayon"
+        },
+        {
+          "code": "MOTR-02",
+          "force": "Contrôle ses mouvements",
+          "defi": "Développer le contrôle de ses mouvements"
+        },
+        {
+          "code": "MOTR-03",
+          "force": "Écrit de façon lisible",
+          "defi": "Améliorer la lisibilité de son écriture"
+        },
+        {
+          "code": "MOTR-04",
+          "force": "Découpe avec précision",
+          "defi": "Découper avec plus de précision"
+        },
+        {
+          "code": "MOTR-05",
+          "force": "Colle les éléments correctement",
+          "defi": "Coller les éléments correctement"
+        },
+        {
+          "code": "MOTR-06",
+          "force": "Colorie en respectant les contours",
+          "defi": "Colorier en respectant les contours"
+        },
+        {
+          "code": "MOTR-07",
+          "force": "Réalise les travaux avec soin",
+          "defi": "Réaliser les travaux avec davantage de soin"
+        },
+        {
+          "code": "MOTR-08",
+          "force": "Utilise le matériel adéquatement",
+          "defi": "Utiliser le matériel adéquatement"
+        },
+        {
+          "code": "MOTR-09",
+          "force": "Prend le temps de terminer ses travaux",
+          "defi": "Prendre le temps de terminer ses travaux"
+        },
+        {
+          "code": "MOTR-10",
+          "force": "Respecte les étapes de réalisation",
+          "defi": "Respecter les étapes de réalisation"
+        }
+      ]
+    }
+  ]
+}
