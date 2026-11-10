@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1f3d34">
+  <meta name="theme-color" content="#f3efe4">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Rencontre">
-  <title>Rencontre de parents</title>
+  <meta name="apple-mobile-web-app-title" content="rencontre.ESCO">
+  <title>rencontre.ESCO</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <style>
-    html, body { margin: 0; height: 100%; background: #f3efe6; color: #1e1b16; font: 16px/1.4 "Segoe UI", sans-serif; }
+    html, body { margin: 0; height: 100%; background-color: #f3efe4; background-image: radial-gradient(rgba(28, 25, 21, 0.045) 0.6px, transparent 0.7px); background-size: 5px 5px; color: #1c1915; font: 16px/1.4 "Segoe UI", sans-serif; }
     body { display: flex; flex-direction: column; }
     header {
       display: flex;
@@ -20,18 +20,18 @@
       gap: 16px;
       align-items: center;
       padding: 10px 16px;
-      border-bottom: 1px solid #1e1b16;
+      border-bottom: 1px solid #1c1915;
     }
     p { margin: 0; max-width: 62ch; }
     a {
       flex: 0 0 auto;
-      background: #1f3d34;
-      color: #f6f3ec;
+      background: #1c1915;
+      color: #f3efe4;
       text-decoration: none;
       border-radius: 999px;
       padding: 8px 14px;
     }
-    iframe { border: 0; width: 100%; flex: 1; display: block; background: #f3efe6; }
+    iframe { border: 0; width: 100%; flex: 1; display: block; background: #f3efe4; }
     .attente { padding: 24px 16px; }
   </style>
 </head>
@@ -40,10 +40,10 @@
     <p id="consigne">Connexion réservée à l’enseignant titulaire du compte. Si Google ne s’affiche pas dans le cadre, ouvrez l’application dans cet onglet.</p>
     <a id="ouvrir" href="#">Ouvrir l’application</a>
   </header>
-  <iframe id="cadre" title="Rencontre de parents" hidden></iframe>
+  <iframe id="cadre" title="rencontre.ESCO" hidden></iframe>
   <p id="attente" class="attente" hidden></p>
   <script>
-    var WEB_APP_URL = 'https://script.google.com/macros/s/REEMPLAZAR/exec';
+    var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyeT77dfvDwtHmGrq0sOaEKTrmGQP6tH7Ggcc9le7V3I7f5UhQGmUKZCsEpm0DgSYhe/exec';
     var lien = document.getElementById('ouvrir');
     var cadre = document.getElementById('cadre');
     var attente = document.getElementById('attente');
